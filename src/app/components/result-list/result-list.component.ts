@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { timer } from 'rxjs';
-import { map, scan, switchMap } from 'rxjs/operators';
+import { map, scan, switchMap, tap } from 'rxjs/operators';
 
 import { DiagnosticEndpointService } from '@app/services/diagnostic-endpoint.service';
 import { RegistrationPlateStatus } from '@app/models/registration-plate-status.model';
@@ -22,6 +22,7 @@ export class ResultListComponent {
         ...item,
         tollStatusLabel: this.getTollStatusLabel(item.tollStatus),
       }))),
+      // tap(results => console.log('New results (parsed):', results)),
       scan((accumulator: RegistrationPlateStatus[], values: RegistrationPlateStatus[]) =>
           values.reverse().concat(accumulator), []),
       map((results: RegistrationPlateStatus[]) => results.slice(0, this.maxResults)),
