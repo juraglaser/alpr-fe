@@ -1,0 +1,52 @@
+<div class="content" role="main">
+  
+  <h2>Výsledky</h2>
+
+  <div class="card-container">
+    <ngx-datatable
+      [rows]="registrationPlatesStatusList$ | async"
+      [headerHeight]="70"
+      [rowHeight]="40"
+      [rowClass]="getRowClass"
+      [messages]="{ emptyMessage: 'Žádná data' }"
+      class="material">
+      <ngx-datatable-column prop="timeStamp" name="Čas" [width]="300">
+        <ng-template ngx-datatable-header-template let-column="column">
+          <h3 class="header-cell">
+            {{ column.name }}
+          </h3>
+        </ng-template>
+        <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+          <div class="data-cell">
+            {{ value | date:"H:mm:ss" }}
+          </div>
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column prop="registrationPlate" name="Registrační značka" [width]="300">
+        <ng-template ngx-datatable-header-template let-column="column">
+          <h3 class="header-cell">
+            {{ column.name }}
+          </h3>
+        </ng-template>
+        <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+          <div class="data-cell">
+            {{ value }}
+          </div>
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column prop="tollStatusLabel" name="Stav" [width]="300">
+        <ng-template ngx-datatable-header-template let-column="column">
+          <h3 class="header-cell">
+            {{ column.name }}
+          </h3>
+        </ng-template>
+        <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+          <div class="data-cell">
+            {{ value }}
+          </div>
+        </ng-template>
+      </ngx-datatable-column>
+    </ngx-datatable>
+  </div>
+
+</div>

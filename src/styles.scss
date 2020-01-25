@@ -1,0 +1,41 @@
+body {
+  font-family: 'Roboto', 'Helvetica Neue, Helvetica, Arial', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 8px 0;
+}
+
+p {
+  margin: 0;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.datatable-body-row:hover {
+  background-color: #eee;
+  transition-property: background;
+  transition-duration: .3s;
+  transition-timing-function: linear;
+}
+
+.empty-row {
+  padding: 30px 15px;
+  font-style: italic;
+  text-align: center;
+}
+
+.status-valid {
+  background-color: #d4edda;
+
+  &:hover {
+    background-color: #c3e6cb;
+  }
+}
