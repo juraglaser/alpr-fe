@@ -1,10 +1,11 @@
 <div class="content" role="main">
-  
+
   <h2>Výsledky</h2>
 
   <div class="card-container">
     <ngx-datatable
       [rows]="registrationPlatesStatusList$ | async"
+      [loadingIndicator]="isLoadingData$ | async"
       [headerHeight]="70"
       [rowHeight]="40"
       [rowClass]="getRowClass"
